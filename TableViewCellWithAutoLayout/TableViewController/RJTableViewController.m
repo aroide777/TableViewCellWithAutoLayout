@@ -53,6 +53,8 @@ static NSString *CellIdentifier = @"CellIdentifier";
     [super viewDidLoad];
     
     [self.tableView registerClass:[RJTableViewCell class] forCellReuseIdentifier:CellIdentifier];
+    self.tableView.separatorColor = [UIColor nexgenLightSlateColor];
+    self.tableView.backgroundColor = [UIColor nexgenDarkSlateColor];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -108,9 +110,10 @@ static NSString *CellIdentifier = @"CellIdentifier";
     
     NSDictionary *dataSourceItem = [self.model.dataSource objectAtIndex:indexPath.row];
 
+    cell.iconView.image =  [UIImage imageNamed:@"alertIconCaution"];
     cell.titleLabel.text =  [dataSourceItem valueForKey:@"title"];
     cell.bodyLabel.text = [dataSourceItem valueForKey:@"body"];
-    
+    cell.addressLabel.text = @"99 Olive Street New Haven, CT 06511";
     // Make sure the constraints have been added to this cell, since it may have just been created from scratch
     [cell setNeedsUpdateConstraints];
     
@@ -128,7 +131,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     cell.titleLabel.text =  [dataSourceItem valueForKey:@"title"];
     cell.bodyLabel.text = [dataSourceItem valueForKey:@"body"];
     
-    cell.bodyLabel.preferredMaxLayoutWidth = tableView.bounds.size.width - (kLabelHorizontalInsets * 3.0f);
+    cell.bodyLabel.preferredMaxLayoutWidth = tableView.bounds.size.width - (90.0f);
     
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];

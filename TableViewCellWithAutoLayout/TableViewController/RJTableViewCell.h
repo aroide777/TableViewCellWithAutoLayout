@@ -26,12 +26,15 @@
 
 #import <UIKit/UIKit.h>
 
+#define kIconViewWidth 50.0f
 #define kLabelHorizontalInsets 20.0f
 
 @interface RJTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutlet UIImageView *iconView;
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *bodyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 
 - (void)updateFonts;
 

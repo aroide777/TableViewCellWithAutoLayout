@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99B2C7B11803488300A29904 /* alertIconCaution.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7AB1803488300A29904 /* alertIconCaution.png */; };
+		99B2C7B21803488300A29904 /* alertIconCaution@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7AC1803488300A29904 /* alertIconCaution@2x.png */; };
+		99B2C7B31803488300A29904 /* alertIconGun.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7AD1803488300A29904 /* alertIconGun.png */; };
+		99B2C7B41803488300A29904 /* alertIconGun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7AE1803488300A29904 /* alertIconGun@2x.png */; };
+		99B2C7B51803488300A29904 /* alertIconProtection.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7AF1803488300A29904 /* alertIconProtection.png */; };
+		99B2C7B61803488300A29904 /* alertIconProtection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7B01803488300A29904 /* alertIconProtection@2x.png */; };
+		99B2C7BE18034F4700A29904 /* alertIconCaution.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7B818034F4700A29904 /* alertIconCaution.png */; };
+		99B2C7BF18034F4700A29904 /* alertIconCaution@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7B918034F4700A29904 /* alertIconCaution@2x.png */; };
+		99B2C7C018034F4700A29904 /* alertIconGun.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7BA18034F4700A29904 /* alertIconGun.png */; };
+		99B2C7C118034F4700A29904 /* alertIconGun@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7BB18034F4700A29904 /* alertIconGun@2x.png */; };
+		99B2C7C218034F4700A29904 /* alertIconProtection.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7BC18034F4700A29904 /* alertIconProtection.png */; };
+		99B2C7C318034F4700A29904 /* alertIconProtection@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 99B2C7BD18034F4700A29904 /* alertIconProtection@2x.png */; };
+		99B2C7E0180353FC00A29904 /* UIColor+NexGen.m in Sources */ = {isa = PBXBuildFile; fileRef = 99B2C7D0180353FC00A29904 /* UIColor+NexGen.m */; };
 		99BCDCA518008C0000B8E66B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BCDCA418008C0000B8E66B /* Foundation.framework */; };
 		99BCDCA718008C0000B8E66B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BCDCA618008C0000B8E66B /* CoreGraphics.framework */; };
 		99BCDCA918008C0000B8E66B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99BCDCA818008C0000B8E66B /* UIKit.framework */; };
@@ -35,6 +48,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99B2C7AB1803488300A29904 /* alertIconCaution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconCaution.png; sourceTree = "<group>"; };
+		99B2C7AC1803488300A29904 /* alertIconCaution@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconCaution@2x.png"; sourceTree = "<group>"; };
+		99B2C7AD1803488300A29904 /* alertIconGun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconGun.png; sourceTree = "<group>"; };
+		99B2C7AE1803488300A29904 /* alertIconGun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconGun@2x.png"; sourceTree = "<group>"; };
+		99B2C7AF1803488300A29904 /* alertIconProtection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconProtection.png; sourceTree = "<group>"; };
+		99B2C7B01803488300A29904 /* alertIconProtection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconProtection@2x.png"; sourceTree = "<group>"; };
+		99B2C7B818034F4700A29904 /* alertIconCaution.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconCaution.png; sourceTree = "<group>"; };
+		99B2C7B918034F4700A29904 /* alertIconCaution@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconCaution@2x.png"; sourceTree = "<group>"; };
+		99B2C7BA18034F4700A29904 /* alertIconGun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconGun.png; sourceTree = "<group>"; };
+		99B2C7BB18034F4700A29904 /* alertIconGun@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconGun@2x.png"; sourceTree = "<group>"; };
+		99B2C7BC18034F4700A29904 /* alertIconProtection.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alertIconProtection.png; sourceTree = "<group>"; };
+		99B2C7BD18034F4700A29904 /* alertIconProtection@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertIconProtection@2x.png"; sourceTree = "<group>"; };
+		99B2C7CF180353FC00A29904 /* UIColor+NexGen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NexGen.h"; sourceTree = "<group>"; };
+		99B2C7D0180353FC00A29904 /* UIColor+NexGen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NexGen.m"; sourceTree = "<group>"; };
 		99BCDCA118008C0000B8E66B /* TableViewCellWithAutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewCellWithAutoLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99BCDCA418008C0000B8E66B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99BCDCA618008C0000B8E66B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -83,6 +110,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99B2C7AA1803488300A29904 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				99B2C7AB1803488300A29904 /* alertIconCaution.png */,
+				99B2C7AC1803488300A29904 /* alertIconCaution@2x.png */,
+				99B2C7AD1803488300A29904 /* alertIconGun.png */,
+				99B2C7AE1803488300A29904 /* alertIconGun@2x.png */,
+				99B2C7AF1803488300A29904 /* alertIconProtection.png */,
+				99B2C7B01803488300A29904 /* alertIconProtection@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		99B2C7B718034F4700A29904 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				99B2C7B818034F4700A29904 /* alertIconCaution.png */,
+				99B2C7B918034F4700A29904 /* alertIconCaution@2x.png */,
+				99B2C7BA18034F4700A29904 /* alertIconGun.png */,
+				99B2C7BB18034F4700A29904 /* alertIconGun@2x.png */,
+				99B2C7BC18034F4700A29904 /* alertIconProtection.png */,
+				99B2C7BD18034F4700A29904 /* alertIconProtection@2x.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		99B2C7C4180353FC00A29904 /* Catagories */ = {
+			isa = PBXGroup;
+			children = (
+				99B2C7CF180353FC00A29904 /* UIColor+NexGen.h */,
+				99B2C7D0180353FC00A29904 /* UIColor+NexGen.m */,
+			);
+			path = Catagories;
+			sourceTree = "<group>";
+		};
 		99BCDC9818008C0000B8E66B = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +190,8 @@
 		99BCDCAB18008C0000B8E66B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99B2C7C4180353FC00A29904 /* Catagories */,
+				99B2C7B718034F4700A29904 /* Images */,
 				99BCDCAC18008C0000B8E66B /* TableViewCellWithAutoLayout-Info.plist */,
 				99BCDCAD18008C0000B8E66B /* InfoPlist.strings */,
 				99BCDCB018008C0000B8E66B /* main.m */,
@@ -157,6 +221,7 @@
 		99BCDCD318008C1700B8E66B /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				99B2C7AA1803488300A29904 /* Images */,
 				99BCDCD418008C1700B8E66B /* RJModel.h */,
 				99BCDCD518008C1700B8E66B /* RJModel.m */,
 				99BCDCD618008C1700B8E66B /* RJTableViewCell.h */,
@@ -243,8 +308,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B2C7B21803488300A29904 /* alertIconCaution@2x.png in Resources */,
+				99B2C7B41803488300A29904 /* alertIconGun@2x.png in Resources */,
 				99BCDCAF18008C0000B8E66B /* InfoPlist.strings in Resources */,
+				99B2C7B31803488300A29904 /* alertIconGun.png in Resources */,
+				99B2C7C018034F4700A29904 /* alertIconGun.png in Resources */,
+				99B2C7BF18034F4700A29904 /* alertIconCaution@2x.png in Resources */,
 				99BCDCB718008C0000B8E66B /* Images.xcassets in Resources */,
+				99B2C7C118034F4700A29904 /* alertIconGun@2x.png in Resources */,
+				99B2C7B11803488300A29904 /* alertIconCaution.png in Resources */,
+				99B2C7B51803488300A29904 /* alertIconProtection.png in Resources */,
+				99B2C7B61803488300A29904 /* alertIconProtection@2x.png in Resources */,
+				99B2C7C318034F4700A29904 /* alertIconProtection@2x.png in Resources */,
+				99B2C7BE18034F4700A29904 /* alertIconCaution.png in Resources */,
+				99B2C7C218034F4700A29904 /* alertIconProtection.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +342,7 @@
 			files = (
 				99BCDCB518008C0000B8E66B /* RJAppDelegate.m in Sources */,
 				99BCDCDC18008C1700B8E66B /* RJTableViewController.m in Sources */,
+				99B2C7E0180353FC00A29904 /* UIColor+NexGen.m in Sources */,
 				99BCDCB118008C0000B8E66B /* main.m in Sources */,
 				99BCDCDA18008C1700B8E66B /* RJModel.m in Sources */,
 				99BCDCDB18008C1700B8E66B /* RJTableViewCell.m in Sources */,
@@ -470,6 +548,7 @@
 				99BCDCCF18008C0000B8E66B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		99BCDCD018008C0000B8E66B /* Build configuration list for PBXNativeTarget "TableViewCellWithAutoLayoutTests" */ = {
 			isa = XCConfigurationList;
@@ -478,6 +557,7 @@
 				99BCDCD218008C0000B8E66B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
