@@ -106,7 +106,7 @@
                                       toItem:self.contentView
                                       attribute:NSLayoutAttributeLeading
                                       multiplier:1.0f
-                                      constant:kLabelHorizontalInsets]];
+                                      constant:(kLabelHorizontalInsets *2)]];
     
     [self.contentView  addConstraint:[NSLayoutConstraint
                                       constraintWithItem:self.bodyLabel

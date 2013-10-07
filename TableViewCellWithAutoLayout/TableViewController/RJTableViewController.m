@@ -128,7 +128,7 @@ static NSString *CellIdentifier = @"CellIdentifier";
     cell.titleLabel.text =  [dataSourceItem valueForKey:@"title"];
     cell.bodyLabel.text = [dataSourceItem valueForKey:@"body"];
     
-    cell.bodyLabel.preferredMaxLayoutWidth = tableView.bounds.size.width - (kLabelHorizontalInsets * 2.0f);
+    cell.bodyLabel.preferredMaxLayoutWidth = tableView.bounds.size.width - (kLabelHorizontalInsets * 3.0f);
     
     [cell setNeedsUpdateConstraints];
     [cell updateConstraintsIfNeeded];
