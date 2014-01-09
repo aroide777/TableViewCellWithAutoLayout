@@ -26,7 +26,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define kLabelHorizontalInsets 20.0f
+#define kLabelHorizontalInsets      15.0f
+#define kLabelVerticalInsets        10.0f
 
 @interface RJTableViewCell : UITableViewCell
 

@@ -24,6 +24,7 @@
 		99BCDCCA18008C0000B8E66B /* TableViewCellWithAutoLayoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BCDCC918008C0000B8E66B /* TableViewCellWithAutoLayoutTests.m */; };
 		99BCDCDB18008C1700B8E66B /* RJTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BCDCD718008C1700B8E66B /* RJTableViewCell.m */; };
 		99BCDCDC18008C1700B8E66B /* RJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 99BCDCD918008C1700B8E66B /* RJTableViewController.m */; };
+		99CDB4CE187E17020077FFAC /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 99CDB4CD187E17020077FFAC /* UIView+AutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		99BCDCD718008C1700B8E66B /* RJTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTableViewCell.m; sourceTree = "<group>"; };
 		99BCDCD818008C1700B8E66B /* RJTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RJTableViewController.h; sourceTree = "<group>"; };
 		99BCDCD918008C1700B8E66B /* RJTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RJTableViewController.m; sourceTree = "<group>"; };
+		99CDB4CC187E17020077FFAC /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		99CDB4CD187E17020077FFAC /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +144,7 @@
 		99BCDCAB18008C0000B8E66B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				99CDB4CA187E17020077FFAC /* Catagories */,
 				99AD4691186746F7006F5B8D /* Images */,
 				99BCDCAC18008C0000B8E66B /* TableViewCellWithAutoLayout-Info.plist */,
 				99BCDCAD18008C0000B8E66B /* InfoPlist.strings */,
@@ -179,6 +183,23 @@
 				99BCDCD918008C1700B8E66B /* RJTableViewController.m */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		99CDB4CA187E17020077FFAC /* Catagories */ = {
+			isa = PBXGroup;
+			children = (
+				99CDB4CB187E17020077FFAC /* UIView+AutoLayout */,
+			);
+			path = Catagories;
+			sourceTree = "<group>";
+		};
+		99CDB4CB187E17020077FFAC /* UIView+AutoLayout */ = {
+			isa = PBXGroup;
+			children = (
+				99CDB4CC187E17020077FFAC /* UIView+AutoLayout.h */,
+				99CDB4CD187E17020077FFAC /* UIView+AutoLayout.m */,
+			);
+			path = "UIView+AutoLayout";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,6 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99BCDCB518008C0000B8E66B /* RJAppDelegate.m in Sources */,
+				99CDB4CE187E17020077FFAC /* UIView+AutoLayout.m in Sources */,
 				99AD469018673EA6006F5B8D /* RJModel.m in Sources */,
 				99BCDCDC18008C1700B8E66B /* RJTableViewController.m in Sources */,
 				99BCDCB118008C0000B8E66B /* main.m in Sources */,

@@ -30,9 +30,8 @@
 
 - (id)init
 {
-    
     if (self = [super init]) {
-        
+        // Custom initilization here
     }
     return self;
 }
