@@ -25,6 +25,7 @@
 //
 
 #import "RJTableViewCell.h"
+#import "UIView+AutoLayout.h" // I'd put this inside the .pch file if using in real project.
 
 @interface RJTableViewCell ()
 
@@ -40,36 +41,31 @@
     if (self) {
         // Initialization code
         
-        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.titleLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
+        self.contentView.backgroundColor = [UIColor colorWithRed:0 green:1 blue:0 alpha:0.1];
+        
+        self.titleLabel = [UILabel newAutoLayoutView];
         [self.titleLabel setLineBreakMode:NSLineBreakByTruncatingTail];
         [self.titleLabel setNumberOfLines:1];
         [self.titleLabel setTextAlignment:NSTextAlignmentLeft];
         [self.titleLabel setTextColor:[UIColor blackColor]];
-        [self.titleLabel setBackgroundColor:[UIColor clearColor]];
+        [self.titleLabel setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:1 alpha:0.1]];
         
-        self.bodyLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.bodyLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-        [self.bodyLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        self.bodyLabel = [UILabel newAutoLayoutView];
         [self.bodyLabel setLineBreakMode:NSLineBreakByTruncatingTail];
         [self.bodyLabel setNumberOfLines:0];
         [self.bodyLabel setTextAlignment:NSTextAlignmentLeft];
         [self.bodyLabel setTextColor:[UIColor darkGrayColor]];
-        [self.bodyLabel setBackgroundColor:[UIColor clearColor]];
+        [self.bodyLabel setBackgroundColor:[UIColor colorWithRed:1 green:0 blue:0 alpha:0.1]];
         
-        self.footnoteLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        [self.footnoteLabel setTranslatesAutoresizingMaskIntoConstraints:NO];
-//        [self.footnoteLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-//        [self.footnoteLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-
+        self.footnoteLabel = [UILabel newAutoLayoutView];
         [self.footnoteLabel setLineBreakMode:NSLineBreakByTruncatingTail];
         [self.footnoteLabel setNumberOfLines:1];
         [self.footnoteLabel setTextColor:[UIColor blackColor]];
-        [self.footnoteLabel setBackgroundColor:[UIColor clearColor]];
+        [self.footnoteLabel setBackgroundColor:[UIColor colorWithRed:0 green:1 blue:0 alpha:0.1]];
         
         self.imageViewForGoldStar = [[UIImageView alloc] initWithFrame:CGRectZero];
         [self.imageViewForGoldStar setTranslatesAutoresizingMaskIntoConstraints:NO];
-        self.imageViewForGoldStar.contentMode = UIViewContentModeCenter;
+        [self.imageViewForGoldStar setContentMode:UIViewContentModeCenter];
 
         [self.contentView addSubview:self.titleLabel];
         [self.contentView addSubview:self.bodyLabel];
@@ -86,121 +82,48 @@
 {
     [super updateConstraints];
     
-    if (self.didSetupConstraints) return;
-
-    [self.contentView addConstraint:[NSLayoutConstraint
-                                     constraintWithItem:self.titleLabel
-                                     attribute:NSLayoutAttributeLeading
-                                     relatedBy:NSLayoutRelationEqual
-                                     toItem:self.contentView
-                                     attribute:NSLayoutAttributeLeading
-                                     multiplier:1.0f
-                                     constant:kLabelHorizontalInsets]];
+    if (self.didSetupConstraints) return; // If constraints have been set, don't do anything.
     
-    [self.contentView addConstraint:[NSLayoutConstraint
-                                     constraintWithItem:self.titleLabel
-                                     attribute:NSLayoutAttributeTop
-                                     relatedBy:NSLayoutRelationEqual
-                                     toItem:self.contentView
-                                     attribute:NSLayoutAttributeTop
-                                     multiplier:1.0f
-                                     constant:(kLabelHorizontalInsets / 2)]];
+    // Note: if the constraints you add below require a larger cell size than the current size (which is likely to be the default size {320, 44}), you'll get an exception.
+    // As a fix, you can temporarily increase the size of the cell's contentView so that this does not occur using code similar to the line below.
+    //      See here for further discussion: https://github.com/Alex311/TableCellWithAutoLayout/commit/bde387b27e33605eeac3465475d2f2ff9775f163#commitcomment-4633188
+    // self.contentView.bounds = CGRectMake(0.0f, 0.0f, 99999.0f, 99999.0f);
     
-    [self.contentView addConstraint:[NSLayoutConstraint
-                                     constraintWithItem:self.titleLabel
-                                     attribute:NSLayoutAttributeTrailing
-                                     relatedBy:NSLayoutRelationEqual
-                                     toItem:self.contentView
-                                     attribute:NSLayoutAttributeTrailing
-                                     multiplier:1.0f
-                                     constant:-kLabelHorizontalInsets]];
+    [self.titleLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.titleLabel autoPinEdgeToSuperviewEdge:ALEdgeTop withInset:kLabelVerticalInsets];
+    [self.titleLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
     
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    [self.bodyLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.bodyLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.titleLabel withOffset:kLabelVerticalInsets];
+    [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeLeading withInset:kLabelHorizontalInsets];
+    [self.bodyLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
     
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.bodyLabel
-                                      attribute:NSLayoutAttributeLeading
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.contentView
-                                      attribute:NSLayoutAttributeLeading
-                                      multiplier:1.0f
-                                      constant:kLabelHorizontalInsets]];
+    [self.footnoteLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.footnoteLabel autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.bodyLabel withOffset:kLabelVerticalInsets];
+    [self.footnoteLabel autoPinEdgeToSuperviewEdge:ALEdgeTrailing withInset:kLabelHorizontalInsets];
     
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.bodyLabel
-                                      attribute:NSLayoutAttributeTop
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.titleLabel
-                                      attribute:NSLayoutAttributeBottom
-                                      multiplier:1.0f
-                                      constant:(kLabelHorizontalInsets / 4)]];
+    [self.footnoteLabel autoPinEdgeToSuperviewEdge:ALEdgeBottom withInset:kLabelVerticalInsets];
     
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.bodyLabel
-                                      attribute:NSLayoutAttributeTrailing
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.contentView
-                                      attribute:NSLayoutAttributeTrailing
-                                      multiplier:1.0f
-                                      constant:-kLabelHorizontalInsets]];
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.footnoteLabel
-                                      attribute:NSLayoutAttributeTop
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.bodyLabel
-                                      attribute:NSLayoutAttributeBottom
-                                      multiplier:1.0f
-                                      constant:(kLabelHorizontalInsets / 4)]];
-    
-    // Hang the footnoteLabel on right side of contentView
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.footnoteLabel
-                                      attribute:NSLayoutAttributeTrailing
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.contentView
-                                      attribute:NSLayoutAttributeTrailing
-                                      multiplier:1.0f
-                                      constant:-kLabelHorizontalInsets]];
-    
-    // Whatever the bottom object is, but sure to attatch it to bottom of contentView so cell expands automatically.
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.footnoteLabel
-                                      attribute:NSLayoutAttributeBottom
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.contentView
-                                      attribute:NSLayoutAttributeBottom
-                                      multiplier:1.0f
-                                      constant:-(kLabelHorizontalInsets / 2)]];
-    
-    
-    
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    // And for a bit of fanciness, how about a nice gold star placed at left of self.footnoteLabel
-    
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.imageViewForGoldStar
-                                      attribute:NSLayoutAttributeTop
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.footnoteLabel
-                                      attribute:NSLayoutAttributeTop
-                                      multiplier:1.0f
-                                      constant:0.0f]];
-    
-    [self.contentView  addConstraint:[NSLayoutConstraint
-                                      constraintWithItem:self.imageViewForGoldStar
-                                      attribute:NSLayoutAttributeTrailing
-                                      relatedBy:NSLayoutRelationEqual
-                                      toItem:self.footnoteLabel
-                                      attribute:NSLayoutAttributeLeading
-                                      multiplier:1.0f
-                                      constant:-4.0f]];
-    
+    // Withe autoPinEdgeToSuperviewEdge:ALEdgeBottom of self.footnoteLabel, it's all ready to go. We'll add in a star just for fun.
+    [self.imageViewForGoldStar setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [self.imageViewForGoldStar autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.bodyLabel withOffset:kLabelVerticalInsets];
+    [self.imageViewForGoldStar autoPinEdge:ALEdgeRight toEdge:ALEdgeLeft ofView:self.footnoteLabel withOffset:-(kLabelVerticalInsets/2)];
 
     self.didSetupConstraints = YES;
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    // The below call to layoutSubviews on the table view cell's contentView should NOT be necessary.
+    // However, in some (but not all!) cases it appears as though the super implementation does not call
+    // layoutSubviews on the contentView, which causes all the UILabels to have a frame of CGRectZero.
+    [self.contentView layoutSubviews];
+    
+    // Set the preferredMaxLayoutWidth of the mutli-line bodyLabel based on the evaluated width of the label's frame,
+    // as this will allow the text to wrap correctly, and as a result allow the label to take on the correct height.
+    self.bodyLabel.preferredMaxLayoutWidth = CGRectGetWidth(self.bodyLabel.frame);
 }
 
 - (void)updateFonts
@@ -208,7 +131,6 @@
     self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.bodyLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
     self.footnoteLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
