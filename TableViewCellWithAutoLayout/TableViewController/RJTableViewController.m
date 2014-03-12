@@ -36,6 +36,11 @@ static NSString *CellIdentifier = @"CellIdentifier";
 // estimated row height for an inserted row is greater than the actual height for that row.
 // See: https://github.com/caoimghgin/TableViewCellWithAutoLayout/issues/6
 @property (assign, nonatomic) BOOL isInsertingRow;
+
+/**
+ * Used for calculating the height of each table view cell
+ */
+@property (strong, nonatomic) RJTableViewCell *referenceCell;
 @end
 
 @implementation RJTableViewController
@@ -221,40 +226,42 @@ static NSString *CellIdentifier = @"CellIdentifier";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    RJTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    [cell updateFonts];
+	if (!self.referenceCell)
+	{
+		self.referenceCell = [[RJTableViewCell alloc] init];
+	}
+	
+    [self.referenceCell updateFonts];
 
-    cell.titleLabel.text =  [self.model titleForIndex:indexPath.row];
+    self.referenceCell.titleLabel.text =  [self.model titleForIndex:indexPath.row];
 
     NSString *bodyText = [self.model bodyForIndex:indexPath.row];
     NSMutableAttributedString *bodyAttributedText = [[NSMutableAttributedString alloc] initWithString:bodyText];
     NSMutableParagraphStyle *bodyParagraphStyle = [[NSMutableParagraphStyle alloc] init];
     [bodyParagraphStyle setLineSpacing:10.0f];
     [bodyAttributedText addAttribute:NSParagraphStyleAttributeName value:bodyParagraphStyle range:NSMakeRange(0, bodyText.length)];
-    cell.bodyLabel.attributedText = bodyAttributedText;
+    self.referenceCell.bodyLabel.attributedText = bodyAttributedText;
     
-    cell.footnoteLabel.text =  [self.model footnoteForIndex:indexPath.row];
+    self.referenceCell.footnoteLabel.text =  [self.model footnoteForIndex:indexPath.row];
 
     // Make sure the constraints have been added to this cell, since it may have just been created from scratch
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
+    [self.referenceCell setNeedsUpdateConstraints];
+    [self.referenceCell updateConstraintsIfNeeded];
     
     // Set the width of the cell to match the width of the table view. This is important so that we'll get the
     // correct height for different table view widths, since our cell's height depends on its width due to
     // the multi-line UILabel word wrapping. Don't need to do this above in -[tableView:cellForRowAtIndexPath]
     // because it happens automatically when the cell is used in the table view.
-    cell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(cell.bounds));
+    self.referenceCell.bounds = CGRectMake(0.0f, 0.0f, CGRectGetWidth(tableView.bounds), CGRectGetHeight(self.referenceCell.bounds));
     
     // Do the layout pass on the cell, which will calculate the frames for all the views based on the constraints
     // (Note that the preferredMaxLayoutWidth is set on multi-line UILabels inside the -[layoutSubviews] method
     // in the UITableViewCell subclass
-    [cell setNeedsLayout];
-    [cell layoutIfNeeded];
+    [self.referenceCell setNeedsLayout];
+    [self.referenceCell layoutIfNeeded];
     
     // Get the actual height required for the cell
-    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    CGFloat height = [self.referenceCell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     
     // Add an extra point to the height to account for internal rounding errors that are occasionally observed in
     // the Auto Layout engine, which cause the returned height to be slightly too small in some cases.
